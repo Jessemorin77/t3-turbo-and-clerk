@@ -40,7 +40,7 @@ export const CreateProperty: React.FC = () => {
       Desc: "",
     });
   
-    const handleInputChange = (key: keyof PropertyData, value: string): void => {
+    const handleInputChange = (key: keyof PropertyData, value: string | number): void => {
       setPropertyData((prevData) => ({ ...prevData, [key]: value }));
     };
 
@@ -61,26 +61,26 @@ export const CreateProperty: React.FC = () => {
         onChangeText={(value) => handleInputChange("State", value)}
         placeholder="State"
       />
-      <TextInput
-        className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
-        onChangeText={(value) => handleInputChange("Zip", value)}
-        placeholder="Zip"
-      />
-      <TextInput
-        className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
-        onChangeText={(value) => handleInputChange("Beds", value)}
-        placeholder="Beds"
-      />
-      <TextInput
-        className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
-        onChangeText={(value) => handleInputChange("Baths", value)}
-        placeholder="Baths"
-      />
-      <TextInput
-        className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
-        onChangeText={(value) => handleInputChange("Sqft", value)}
-        placeholder="Sqft"
-      />
+     <TextInput
+  className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
+  onChangeText={(value) => handleInputChange("Zip", Number(value) || 0)}
+  placeholder="Zip"
+/>
+<TextInput
+  className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
+  onChangeText={(value) => handleInputChange("Beds", Number(value) || 0)}
+  placeholder="Beds"
+/>
+<TextInput
+  className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
+  onChangeText={(value) => handleInputChange("Baths", Number(value) || 0)}
+  placeholder="Baths"
+/>
+<TextInput
+  className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
+  onChangeText={(value) => handleInputChange("Sqft", Number(value) || 0)}
+  placeholder="Sqft"
+/>
       <TextInput
         className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
         onChangeText={(value) => handleInputChange("Type", value)}
