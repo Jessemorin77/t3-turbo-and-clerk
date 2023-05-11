@@ -17,7 +17,7 @@ model Post {
 }
 
 model Property {
-    id      String @id @default(cuid())
+    id      String   @id @default(cuid())
     Address String
     City    String
     State   String
@@ -29,4 +29,23 @@ model Property {
     Status  String
     Image   String
     Desc    String
+    listings Listing[]
 }
+
+
+
+model Listing {
+    id             String   @id @default(cuid())
+    propertyId     String
+    property       Property @relation(fields: [propertyId], references: [id])
+    jobType        String
+    contractorType String
+    reacurring     Boolean
+    readyToHire    Boolean
+    title          String
+    description    String
+    budget         Int
+}
+
+
+

@@ -8,7 +8,7 @@ import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { tokenCache } from "./utils/cache";
 import Constants from "expo-constants";
 import { TabNavigation } from "./navigation/UserStack";
-
+import { NativeBaseProvider} from "native-base";
 
 export const App = () => {
   return (
@@ -20,9 +20,10 @@ export const App = () => {
         <TRPCProvider>
           <SafeAreaProvider>
           <NavigationContainer>
-            <TabNavigation/>
-          </NavigationContainer>
-            
+            <NativeBaseProvider>
+              <TabNavigation/>
+            </NativeBaseProvider>
+            </NavigationContainer>
             <StatusBar />
           </SafeAreaProvider>
         </TRPCProvider>
