@@ -1,7 +1,8 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import { View, Text, SafeAreaView, Button } from "react-native";
 import { ListingStackParamList } from "../navigation/UserStack";
-import { ListingList } from "../components/ListingList";
+import { ListingCardList } from "../components/ListingCardList";
+
 type ListingScreenNavigationProp = StackNavigationProp<
   ListingStackParamList,
   "Listing"
@@ -13,14 +14,12 @@ type ListingScreenProps = {
 
 function ListingScreen({ navigation }: ListingScreenProps) {
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView className="h-full w-full p-7 bg-gray-500">
         <Button
           title="Add Listing"
           onPress={() => navigation.navigate("AddListing")}
         />
-        <ListingList />
-      </View>
+        <ListingCardList />
      </SafeAreaView>
   );
 }

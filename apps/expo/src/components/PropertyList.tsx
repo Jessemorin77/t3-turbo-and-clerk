@@ -5,8 +5,10 @@ import { trpc } from "../utils/trpc";
 import { FlashList } from "@shopify/flash-list";
 import React from "react";
 
+type Property = inferProcedureOutput<AppRouter["property"]["all"]>[number];
+
 const PostCards: React.FC<{
-    property: inferProcedureOutput<AppRouter["property"]["all"]>[number];
+    property: Property;
   }> = ({ property }) => {
     return (
       <View className="rounded-lg border-4 border-black p-1">
@@ -28,15 +30,17 @@ const PostCards: React.FC<{
   export const PropertyList: React.FC = () => {
     const propQuery = trpc.property.all.useQuery();
     const [showPost, setShowPost] = React.useState<string | null>(null);
+
+    const data: Property[] = propQuery.data ?? [];
     return(
       
        <FlashList 
-          data={propQuery.data}
+          data={data}
           estimatedItemSize={20}
           ItemSeparatorComponent={() => <View className="h-2" />}
-          renderItem={(p) => (
-            <TouchableOpacity onPress={() => setShowPost(p.item.id)}>
-              <PostCards property={p.item} />
+          renderItem={({item}: {item: Property}) => (
+            <TouchableOpacity onPress={() => setShowPost(item.id)}>
+              <PostCards property={item} />
             </TouchableOpacity>
           )}
         />
