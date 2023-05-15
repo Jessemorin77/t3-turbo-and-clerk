@@ -38,7 +38,7 @@ export const HomeScreen = () => {
                   source={{uri: 'https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80'}} 
                   className="w-full h-40"
                 />
-                <Text className="text-lg font-bold p-1">title</Text>
+                <Text className="text-lg font-bold p-1 ">Upload a Listing to find Cleaners!</Text>
               </View>
           </TouchableOpacity>
         
@@ -49,7 +49,7 @@ export const HomeScreen = () => {
                   source={{uri: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'}} 
                   className="w-full h-40"
                 />
-                <Text className="text-lg font-bold p-1">title</Text>
+                <Text className="text-lg font-bold p-1">Add Property to Your Profile</Text>
               </View>
           </TouchableOpacity>
         
@@ -57,10 +57,10 @@ export const HomeScreen = () => {
               <View className="rounded-lg overflow-hidden shadow bg-white m-4">
               
                 <Image 
-                  source={{uri: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=mnwxmja3fdb8mhxzzwfyy2h8mnx8aw1hz2v8zw58mhx8mhx8&w=1000&q=80'}} 
+                  source={{uri: 'https://media.istockphoto.com/id/1320438605/photo/gavel-with-miniature-model-house-on-shelf.jpg?b=1&s=170667a&w=0&k=20&c=MTWJj9spHcvHkb5EMteYfMCYcYGyEv_1JOIfWXJjol0='}} 
                   className="w-full h-40"
                 />
-                <Text className="text-lg font-bold p-1">title</Text>
+                <Text className="text-lg font-bold p-1">View Bids</Text>
               </View>
           </TouchableOpacity>
           
@@ -68,10 +68,21 @@ export const HomeScreen = () => {
               <View className="rounded-lg overflow-hidden shadow bg-white m-4">
               
                 <Image 
-                  source={{uri: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=mnwxmja3fdb8mhxzzwfyy2h8mnx8aw1hz2v8zw58mhx8mhx8&w=1000&q=80'}} 
+                  source={{uri: 'https://images.unsplash.com/photo-1529119368496-2dfda6ec2804?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGFwcG9pbnRtZW50c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'}} 
                   className="w-full h-40"
                 />
-                <Text className="text-lg font-bold p-1">title</Text>
+                <Text className="text-lg font-bold p-1">Scheduled Appointments</Text>
+              </View>
+          </TouchableOpacity>
+            
+          <TouchableOpacity  >
+              <View className="rounded-lg overflow-hidden shadow bg-white m-4">
+              
+                <Image 
+                  source={{uri: 'https://images.unsplash.com/photo-1608093310225-bb8260a85072?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHRleHRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'}} 
+                  className="w-full h-40"
+                />
+                <Text className="text-lg font-bold p-1">Chat With Cleaners</Text>
               </View>
           </TouchableOpacity>
           <SignOut />

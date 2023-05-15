@@ -57,24 +57,25 @@ const ListingStack = () => {
 
 export const TabNavigation = () => {
   return (
-    <View style={{ backgroundColor: '#fff', flex: 1 }}>
+    <View style={{ backgroundColor: '#38bdf8', flex: 1 }}>
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: false,
           tabBarStyle: {
             position: 'absolute',
-            bottom: 17,
+            bottom: 15,
             left: 20,
             right: 20,
             elevation: 0,
-            borderRadius: 15,
+            borderRadius: 20,
             height: 60,
-            backgroundColor: '#6ee7b7',
-            paddingBottom: 11,
+            backgroundColor: '#1e40af',
+            paddingBottom: 13,
           },
+          //iconcolor
           tabBarActiveTintColor: '#a7f3d0',
-          tabBarInactiveTintColor: 'YOUR_INACTIVE_TINT_COLOR',
+          tabBarInactiveTintColor: '#fff',
         }}
       >
         <Tab.Screen name="Home" component={HomeScreen} />

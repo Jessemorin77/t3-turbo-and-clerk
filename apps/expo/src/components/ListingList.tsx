@@ -23,6 +23,8 @@ export const ListingList = () => {
   if (isError || !listings) {
     return <Text>Error: {error?.message}</Text>;
   }
+  
+  
 
   return (
     <View>
