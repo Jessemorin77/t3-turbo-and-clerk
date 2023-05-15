@@ -1,6 +1,5 @@
 import React from "react";
-
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Button, Text, TextInput, TouchableOpacity, View, Image, ScrollView} from "react-native";
 import { useAuth } from "@clerk/clerk-expo";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlashList } from "@shopify/flash-list";
@@ -23,93 +22,61 @@ const SignOut = () => {
   );
 };
 
-const PostCard: React.FC<{
-  post: inferProcedureOutput<AppRouter["post"]["all"]>[number];
-}> = ({ post }) => {
-  return (
-    <View className="rounded-lg border-2 border-gray-500 p-4">
-      <Text className="text-xl font-semibold text-[#cc66ff]">{post.title}</Text>
-      <Text className="text-white">{post.content}</Text>
-    </View>
-  );
-};
-
-const CreatePost: React.FC = () => {
-  const utils = trpc.useContext();
-  const { mutate } = trpc.post.create.useMutation({
-    async onSuccess() {
-      await utils.post.all.invalidate();
-    },
-  });
-
-  const [title, onChangeTitle] = React.useState("");
-  const [content, onChangeContent] = React.useState("");
-
-  return (
-    <View className="flex flex-col border-t-2 border-gray-500 p-4">
-      <TextInput
-        className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
-        onChangeText={onChangeTitle}
-        placeholder="Title"
-      />
-      <TextInput
-        className="mb-2 rounded border-2 border-gray-500 p-2 text-white"
-        onChangeText={onChangeContent}
-        placeholder="Content"
-      />
-      <TouchableOpacity
-        className="rounded bg-[#cc66ff] p-2"
-        onPress={() => {
-          mutate({
-            title,
-            content,
-          });
-        }}
-      >
-        <Text className="font-semibold text-white">Publish post</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
 export const HomeScreen = () => {
-  const postQuery = trpc.post.all.useQuery();
-  const [showPost, setShowPost] = React.useState<string | null>(null);
 
   return (
-    <SafeAreaView className="bg-[#2e026d] bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-      <View className="h-full w-full p-4">
-        <Text className="mx-auto pb-2 text-5xl font-bold text-white">
-          Create <Text className="text-[#cc66ff]">T3</Text> Turbo
-        </Text>
-
-        <View className="py-2">
-          {showPost ? (
-            <Text className="text-white">
-              <Text className="font-semibold">Selected post:</Text>
-              {showPost}
-            </Text>
-          ) : (
-            <Text className="font-semibold italic text-white">
-              Press on a post
-            </Text>
-          )}
+    <SafeAreaView className="bg-[#111827] bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+      <ScrollView className="h-full">
+        <View className=" w-full p-4">
+          <Text className="mx-auto pb-2 text-5xl font-bold text-white">
+            Clean<Text className="text-[#cc66ff]">BNB</Text> 
+          </Text>
+          <TouchableOpacity  >
+              <View className="rounded-lg overflow-hidden shadow bg-white m-4">
+              
+                <Image 
+                  source={{uri: 'https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80'}} 
+                  className="w-full h-40"
+                />
+                <Text className="text-lg font-bold p-1">title</Text>
+              </View>
+          </TouchableOpacity>
+        
+          <TouchableOpacity  >
+              <View className="rounded-lg overflow-hidden shadow bg-white m-4">
+              
+                <Image 
+                  source={{uri: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'}} 
+                  className="w-full h-40"
+                />
+                <Text className="text-lg font-bold p-1">title</Text>
+              </View>
+          </TouchableOpacity>
+        
+          <TouchableOpacity  >
+              <View className="rounded-lg overflow-hidden shadow bg-white m-4">
+              
+                <Image 
+                  source={{uri: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=mnwxmja3fdb8mhxzzwfyy2h8mnx8aw1hz2v8zw58mhx8mhx8&w=1000&q=80'}} 
+                  className="w-full h-40"
+                />
+                <Text className="text-lg font-bold p-1">title</Text>
+              </View>
+          </TouchableOpacity>
+          
+          <TouchableOpacity  >
+              <View className="rounded-lg overflow-hidden shadow bg-white m-4">
+              
+                <Image 
+                  source={{uri: 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=mnwxmja3fdb8mhxzzwfyy2h8mnx8aw1hz2v8zw58mhx8mhx8&w=1000&q=80'}} 
+                  className="w-full h-40"
+                />
+                <Text className="text-lg font-bold p-1">title</Text>
+              </View>
+          </TouchableOpacity>
+          <SignOut />
         </View>
-
-        <FlashList
-          data={postQuery.data}
-          estimatedItemSize={20}
-          ItemSeparatorComponent={() => <View className="h-2" />}
-          renderItem={(p) => (
-            <TouchableOpacity onPress={() => setShowPost(p.item.id)}>
-              <PostCard post={p.item} />
-            </TouchableOpacity>
-          )}
-        />
-
-        <CreatePost />
-        <SignOut />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
-};
+}; 

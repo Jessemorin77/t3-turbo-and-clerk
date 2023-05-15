@@ -1,7 +1,7 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import { View, Text, SafeAreaView, Button } from "react-native";
 import { ListingStackParamList } from "../navigation/UserStack";
-import { ListingList } from "../components/ListingList.tsx";
+import { ListingList } from "../components/ListingList";
 type ListingScreenNavigationProp = StackNavigationProp<
   ListingStackParamList,
   "Listing"
@@ -21,7 +21,7 @@ function ListingScreen({ navigation }: ListingScreenProps) {
         />
         <ListingList />
       </View>
-    </SafeAreaView>
+     </SafeAreaView>
   );
 }
 

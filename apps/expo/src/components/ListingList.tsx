@@ -1,6 +1,13 @@
 import { View, Text } from "react-native";
 import { trpc } from "../utils/trpc";
 
+interface Listing {
+  id: string;
+  title: string;
+  description: string;
+  budget: number;
+}
+
 export const ListingList = () => {
   const {
     data: listings,
@@ -19,7 +26,7 @@ export const ListingList = () => {
 
   return (
     <View>
-      {listings.map((listing) => (
+      {listings.map((listing: Listing) => (
         <View key={listing.id}>
           <Text>{listing.title}</Text>
           <Text>{listing.description}</Text>
